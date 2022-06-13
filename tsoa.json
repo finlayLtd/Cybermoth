@@ -1,0 +1,43 @@
+{
+  "entryFile": "src/app.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": [
+    "src/**/*-controller.ts"
+  ],
+  "spec": {
+    "basePath": "/api",
+    "outputDirectory": "src/generated",
+    "specVersion": 3,
+    "securityDefinitions": {
+      "api_key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      },
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "jwt": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "tags":  [
+      {
+        "name": "Users",
+        "description": "Operations about users",
+        "externalDocs": {
+          "description": "Find out more about users",
+          "url": "http://swagger.io"
+        }
+      }
+    ]
+  },
+  "routes": {
+    "basePath": "/",
+    "authenticationModule": "src/api/authentication.ts",
+    "routesDir": "src/generated"
+  }
+}

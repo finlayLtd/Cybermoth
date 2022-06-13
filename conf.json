@@ -1,0 +1,41 @@
+{
+    "log4js": {
+        "appenders": { "out": { "type": "stdout" } },
+        "categories": { "default": { "appenders": ["out"], "level": "trace" } }
+    },
+    "server": {
+        "host": "localhost",
+        "port": 8080
+    },
+    "auth": {
+        "apiKey": {
+            "admin_key": { "sub": "admin" },
+            "user_key": { "sub": "user", "scopes": ["admin", "user"] },
+            "test_key": { "sub": "test", "scopes": ["admin"] }
+        },
+        "basic": {
+            "subs": {
+                "admin": { "password": "adminpwd" },
+                "user": { "password": "userpwd", "scopes": ["admin", "user"] },
+                "test": { "password": "testpwd", "scopes": ["admin"] }
+            },
+            "challenge": true,
+            "realm": "api"
+        },
+        "jwt": {
+            "secretOrPublicKey": "TEST",
+            "algorithms": ["HS256"],
+            "tokenClaimSubject": "sub",
+            "tokenClaimScope": "scope"
+        }
+    },
+    "orm": {
+        "username": "root",
+        "password": "kistls",
+        "database": "kistl",
+        "port": 3307,
+        "synchronize": true,
+        "logging": false,
+        "bigNumberStrings": false
+    }
+}

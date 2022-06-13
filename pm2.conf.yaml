@@ -1,0 +1,9 @@
+apps:
+  - name     : kistl-backend
+    # script   : ./build/server.js
+    script   : ts-node
+    args     : --transpile-only ./src/server.ts
+    # instances: 0
+    # exec_mode: cluster
+    env    :
+      NODE_ENV: production

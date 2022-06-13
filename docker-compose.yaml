@@ -1,0 +1,47 @@
+version: "2.2"
+
+# volumes:
+#   data:
+
+networks:
+  backend:
+
+services:
+
+  mysql:
+    image: mariadb:10.2
+    command:
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+    #   - "--default-authentication-plugin=mysql_native_password"
+    restart: always
+    environment:
+    #   MYSQL_USER: kistl
+      MYSQL_ROOT_PASSWORD: kistls
+      MYSQL_DATABASE: kistl
+    ports:
+      - 3307:3306
+    networks:
+      - backend
+    volumes:
+      # - data:/var/lib/mysql
+      - ./data/mariadb:/var/lib/mysql
+
+
+#   adminer:
+#     image: adminer
+#     restart: always
+#     ports:
+#       - 8081:8080
+
+  # kistl:
+  #   build: .
+  #   image: kistl
+  #   ports:
+  #     - "8080:8080"
+  #   # volumes:
+  #   #   - .:/app
+  #   depends_on:
+  #     - mysql
+  #   networks:
+  #     - backend

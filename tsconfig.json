@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        // "target": "esnext",
+        "target": "es2019",
+        "lib": [
+            "esnext",
+            "esnext.Promise"
+        ],
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "allowUnreachableCode": false,
+        "strictFunctionTypes": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "strictNullChecks": false,
+        "pretty": true,
+        "noFallthroughCasesInSwitch": true,
+        "strict": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": false,
+        "outDir": "build",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "typeRoots": [
+            "./src/@types",
+            "./node_modules/@types"
+        ]
+    },
+    "include": [
+        "src/@types/**/*.d.ts",
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/generated",
+        "data"
+    ]
+}
